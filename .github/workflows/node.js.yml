@@ -84,4 +84,5 @@ jobs:
           fetch-depth: 0
       - name: Deploy to Server
         if: ${{ github.event_name == 'push' }}
+        run: ls
        
