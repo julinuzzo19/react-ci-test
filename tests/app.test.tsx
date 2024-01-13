@@ -4,7 +4,7 @@ import App from "../src/App";
 
 describe("something truthy and falsy", () => {
   it("true to be true", () => {
-    expect(true).toBe(true);
+    expect(true).toBe(false);
   });
 
   it("render app component contains hello world!", () => {
