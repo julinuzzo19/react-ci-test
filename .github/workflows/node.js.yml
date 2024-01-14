@@ -83,6 +83,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: root
           password: ${{ secrets.PASSWORD }}
+          privateKey: ${{ secrets.KEY_SSH }}
 
 
 
