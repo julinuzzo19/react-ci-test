@@ -82,7 +82,6 @@ jobs:
           command: cd ventaspro && git pl && pm2 restart skclient skadmin skserver
           host: ${{ secrets.HOST }}
           username: root
-          password: ${{ secrets.PASSWORD }}
           privateKey: ${{ secrets.KEY_SSH }}
 
 
