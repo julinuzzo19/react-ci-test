@@ -79,10 +79,18 @@ jobs:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Deploy to Server
-        if: ${{ github.event_name == 'push' }}
-        run: ls
+     - name: executing remote ssh commands using password
+       uses: appleboy/ssh-action@v1.0.3
+       with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: cd ventaspro && git pl && pm2 restart skclient skadmin skserver
+      # - uses: actions/checkout@v4
+      #   with:
+      #     fetch-depth: 0
+      # - name: Deploy to Server
+      #   if: ${{ github.event_name == 'push' }}
+      #   run: ls
        
