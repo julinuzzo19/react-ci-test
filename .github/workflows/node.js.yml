@@ -77,14 +77,31 @@ jobs:
     needs: [test]
     runs-on: ubuntu-latest
     steps:
-      - uses: appleboy/ssh-action@v1.0.3
-        name: executing remote ssh commands using password
+      - uses: garygrossgarten/github-action-ssh@release
         with:
+          command: cd ventaspro && git pl && pm2 restart skclient skadmin skserver
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY_SSH }}
-          port: ${{ secrets.PORT }}
-          script: cd ventaspro && git pl && pm2 restart skclient skadmin skserver
+          username: root
+          passphrase: 
+          privateKey: ${{ secrets.KEY_SSH}}
+
+
+
+
+
+
+
+
+
+
+      # - uses: appleboy/ssh-action@v1.0.3
+      #   name: executing remote ssh commands using password
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     key: ${{ secrets.KEY_SSH }}
+      #     port: ${{ secrets.PORT }}
+      #     script: cd ventaspro && git pl && pm2 restart skclient skadmin skserver
 
 
 
