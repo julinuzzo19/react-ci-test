@@ -10,6 +10,6 @@ describe("something truthy and falsy", () => {
   it("render app component contains hello world!", () => {
     render(<App />);
 
-    expect(screen.getByText("Hola"));
+    expect(screen.getByText("Hola Vercel"));
   });
 });
